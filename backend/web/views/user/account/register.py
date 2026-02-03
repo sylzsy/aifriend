@@ -9,8 +9,8 @@ from web.models.user import UserProfile
 class RegisterView(APIView):
     def post(self, request):
         try:
-            username = request.POST['username'].strip()
-            password = request.POST['password'].strip()
+            username = request.data['username'].strip()
+            password = request.data['password'].strip()
             if not username or not password:
                 return Response({
                     'result': '用户名和密码不能为空'
